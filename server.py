@@ -1,6 +1,27 @@
 #!/usr/bin/python
 
 import socket
+import math
+
+def parseMsg(strMsg):
+    key = math.inf
+    _strMsg = strMsg.upper()
+    msgArr = _strMsg.split(":")
+    if(len(msgArr) < 2):
+        print("Warn: Unkown message type!")
+    else:
+        val = float(msgArr[1])
+        print(f"{msgArr[0]}:{val}")
+        # runCtrlLogic(msgArr[0], msgArr[1]) # implemented directly below
+        if(_strMsg.startswith("F")):
+            print("F")
+        elif(_strMsg.startswith("R")):
+            print("R")
+        elif(_strMsg.startswith("L")):
+            print("L")
+        else:
+            print("Error: Unknown message head!")
+    return key
 
 def start_udp_server():
     HOST = "127.0.0.1"
@@ -21,6 +42,7 @@ def start_udp_server():
         _clientIP  = "Client IP Address: {}".format(address)
         print(_clientMsg)
         print(_clientIP)
+        parseMsg(clientMsg)
         # Sending a reply to client
         msgFromServer       = "Client state running on: {}".format(address)
         bytesToSend         = str.encode(msgFromServer)
