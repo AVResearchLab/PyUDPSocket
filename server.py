@@ -22,7 +22,7 @@ def start_udp_server():
         print(_clientMsg)
         print(_clientIP)
         # Sending a reply to client
-        msgFromServer       = "UDP client connection state running on IP:" + address
+        msgFromServer       = "Client state running on: {}".format(address)
         bytesToSend         = str.encode(msgFromServer)
         UDPServerSocket.sendto(bytesToSend, address)
 
