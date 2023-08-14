@@ -3,7 +3,8 @@ Stores here are the simple scripts for making network connection using UDP socke
 
 <br>
 
-Here is a simple utility of the 2 scripts:
+Here is a simple utility of these 2 scripts:
+
 *Server side*
 ```python
 #!/usr/bin/python
